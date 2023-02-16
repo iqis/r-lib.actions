@@ -32,6 +32,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+let tempDirectory = process.env["RUNNER_TEMP"] || "";
+console.log(tempDirectory);
 const core = __importStar(require("@actions/core"));
 const installer_1 = require("./installer");
 const path = __importStar(require("path"));
@@ -43,7 +45,7 @@ function run() {
             var version;
             version = core.getInput("r-version");
             if (version === "renv") {
-                let tempDirectory = process.env["RUNNER_TEMP"] || "";
+                core.debug(`temp dir is ${tempDirectory}`);
                 let renv_lock_path = path.join(tempDirectory, "renv.lock");
                 if (fs.existsSync(renv_lock_path)) {
                     let renv_lock = fs.readFileSync(renv_lock_path).toString();
