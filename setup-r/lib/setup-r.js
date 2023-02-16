@@ -36,11 +36,6 @@ const core = __importStar(require("@actions/core"));
 const installer_1 = require("./installer");
 const path = __importStar(require("path"));
 const fs = __importStar(require("fs"));
-let tempDirectory = ".";
-console.log("#######");
-console.log(tempDirectory);
-console.log(fs.readdirSync(tempDirectory));
-console.log("#######");
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
@@ -48,7 +43,7 @@ function run() {
             var version;
             version = core.getInput("r-version");
             if (version === "renv") {
-                let renv_lock_path = path.join(tempDirectory, "renv.lock");
+                let renv_lock_path = "./renv.lock";
                 if (fs.existsSync(renv_lock_path)) {
                     let renv_lock = fs.readFileSync(renv_lock_path).toString();
                     version = JSON.parse(renv_lock).R.Version;
