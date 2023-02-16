@@ -3,7 +3,7 @@ import { getR } from "./installer";
 import * as path from "path";
 import * as fs from "fs";
 
-let tempDirectory = process.env["RUNNER_TEMP"] || "";
+let tempDirectory = "."
 console.log("#######")
 console.log(tempDirectory)
 console.log(fs.readdirSync(tempDirectory))
@@ -17,7 +17,6 @@ async function run() {
     version = core.getInput("r-version")
 
     if (version === "renv") {
-      core.debug(`temp dir is ${tempDirectory}`)
       let renv_lock_path = path.join(tempDirectory, "renv.lock");
       if (fs.existsSync(renv_lock_path)) {
         let renv_lock = fs.readFileSync(renv_lock_path).toString();
