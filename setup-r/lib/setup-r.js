@@ -33,7 +33,10 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 let tempDirectory = process.env["RUNNER_TEMP"] || "";
+console.log("#######");
 console.log(tempDirectory);
+console.log(fs.readdirSync(tempDirectory));
+console.log("#######");
 const core = __importStar(require("@actions/core"));
 const installer_1 = require("./installer");
 const path = __importStar(require("path"));

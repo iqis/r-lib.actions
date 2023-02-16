@@ -1,5 +1,8 @@
 let tempDirectory = process.env["RUNNER_TEMP"] || "";
+console.log("#######")
 console.log(tempDirectory)
+console.log(fs.readdirSync(tempDirectory))
+console.log("#######")
 
 import * as core from "@actions/core";
 import { getR } from "./installer";
