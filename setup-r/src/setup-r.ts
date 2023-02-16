@@ -1,13 +1,13 @@
+import * as core from "@actions/core";
+import { getR } from "./installer";
+import * as path from "path";
+import * as fs from "fs";
+
 let tempDirectory = process.env["RUNNER_TEMP"] || "";
 console.log("#######")
 console.log(tempDirectory)
 console.log(fs.readdirSync(tempDirectory))
 console.log("#######")
-
-import * as core from "@actions/core";
-import { getR } from "./installer";
-import * as path from "path";
-import * as fs from "fs";
 
 async function run() {
   try {
